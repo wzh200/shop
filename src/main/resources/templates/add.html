@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/UpLoad" method="post">
+   <label for="n"> 姓名:</label><input id="n" name="username" type="text"/>
+    <label for="i">头像:</label><input id="i" name="imgname" type="text"/>
+</form>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>姓名</td>
+        <td>头像</td>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.imgname}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.ciloudit.wangzihao.first.dao.UserMapper">
+   <select id="getByName" parameterType="String" resultType="User">
+       select * from  User_table where username=#{username}
+   </select>
+   <insert id="addUser" parameterType="User" >
+       insert into User_table (id,username,imgname) values (#{id},#{username},#{imgname})
+   </insert>
+    <update id="updateUser" parameterType="user" >
+        update User_table set username=#{username},imgname=#{imgname} where id=#{id}
+    </update>
+    <select id="getAll" resultType="user">
+        select * from User_table;
+    </select>
+</mapper>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/UpLoad" enctype="multipart/form-data" method="post">
+    姓名:<input  name="username" type="text"/></br>
+    头像:<input type="file" name="multipartFile" ></br>
+    <input type="submit" value="提交"/></br>
+</form>
+</br></br>
+<a href="/mail">邮件</a></br></br>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>姓名</td>
+        <td>头像</td>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td ><img th:src="@{'../resources/static/img/'+${user.imgname}}" width="100px" height="100"/></td>
+
+    </tr>
+</table>
+</body>
+</html>
